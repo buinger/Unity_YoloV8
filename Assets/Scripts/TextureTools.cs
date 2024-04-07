@@ -76,8 +76,12 @@ class TextureTools
             // 更新 yoloMask 的尺寸和缩放
 
             float scalerate = targetSize / sizeTexture.width;
-            float scalerate2 = (float)Screen.width / sizeTexture.width;
-            yoloMask.sizeDelta = new Vector2(width / scalerate, height / scalerate);
+            //对齐高
+            float scalerate2 = (float)Screen.height / (height / scalerate);
+            //对齐宽
+            //float scalerate2 =  (float)Screen.width/sizeTexture.width;
+            //遮罩功能，mac报错
+            // yoloMask.sizeDelta=new Vector2(width/scalerate, height/scalerate);
             Debug.Log(scalerate2);
             yoloMask.transform.localScale = new Vector3(scalerate2, scalerate2, 0);
 
